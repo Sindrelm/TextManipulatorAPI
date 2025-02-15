@@ -1,4 +1,3 @@
-import Modules.ReplaceText.ReplaceTextCommand;
 import Modules.WrapText.WrapTextCommand;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
