@@ -8,7 +8,21 @@ public class ReplaceFirstTextCommand extends ReplaceTextCommand{
 
   @Override
   public String execute(String text) {
-    verifyString(text);
-    return text.replaceFirst(target, replacement);
+    StringBuilder result = new StringBuilder();
+    int i = 0;
+    boolean firstTime = true;
+
+    while (i < text.length()) {
+      if (text.startsWith(target, i) && firstTime) {
+        result.append(replacement);
+        i += target.length();
+        firstTime = false;
+      }
+      else {
+        result.append(text.charAt(i));
+        i++;
+      }
+    }
+    return result.toString();
   }
 }

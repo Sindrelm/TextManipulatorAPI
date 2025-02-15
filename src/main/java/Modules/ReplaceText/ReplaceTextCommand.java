@@ -31,6 +31,21 @@ public class ReplaceTextCommand implements TextCommand {
   }
 
   public String execute(String text) {
-    return replacement.replace(target, replacement);
+    StringBuilder result = new StringBuilder();
+    int targetLength = target.length();
+    int i = 0;
+
+    while (i < text.length()) {
+      if (text.startsWith(target, i)) {
+        result.append(replacement);
+        i += targetLength;
+      }
+      else {
+        result.append(text.charAt(i));
+        i++;
+      }
+    }
+    return result.toString();
+
   }
 }
