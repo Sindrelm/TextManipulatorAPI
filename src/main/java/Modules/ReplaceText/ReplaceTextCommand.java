@@ -1,3 +1,7 @@
+package Modules.ReplaceText;
+
+import Modules.TextCommand;
+
 public class ReplaceTextCommand implements TextCommand {
 
   public String target;
