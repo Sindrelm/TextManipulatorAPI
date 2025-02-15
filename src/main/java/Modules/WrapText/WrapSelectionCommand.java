@@ -1,8 +1,10 @@
 package Modules.WrapText;
 
+import Modules.ReplaceText.ReplaceTextCommand;
+
 public class WrapSelectionCommand extends WrapTextCommand {
 
-  private String selection;
+  private final String selection;
 
   public WrapSelectionCommand(String selection, String opening, String ending) {
     super(opening, ending);
@@ -17,17 +19,7 @@ public class WrapSelectionCommand extends WrapTextCommand {
 
   @Override
   public String execute(String text) {
-    StringBuilder result = new StringBuilder()
-    String[] splitText = text.split(selection);
-
-    for(String string : splitText) {
-      if (string.equals(selection)) {
-        result.append(super.execute(string));
-      }
-      else {
-        result.append(string);
-      }
-    }
-    return result.toString();
+    ReplaceTextCommand replaceCommand = new ReplaceTextCommand(selection, super.execute(selection));
+    return replaceCommand.execute(text);
   }
 }

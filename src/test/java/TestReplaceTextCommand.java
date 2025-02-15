@@ -28,7 +28,7 @@ public class TestReplaceTextCommand {
   @Test
   public void testExecute() {
     ReplaceTextCommand command = new ReplaceTextCommand("target", "replacement");
-    assertEquals("replacement", command.execute("target"));
+    assertEquals("replacement, replacement, replacement", command.execute("target, target, target"));
   }
 
 }
