@@ -7,6 +7,7 @@ public class CapitalizeWordsCommand extends CapitalizeTextCommand{
 
   @Override
   public String execute(String text) {
+    super.verifyText(text);
     StringBuilder result = new StringBuilder();
     String[] splitText = text.split(" ");
 
