@@ -1,7 +1,7 @@
 public class ReplaceTextCommand implements TextCommand {
 
-  private final String target;
-  private final String replacement;
+  public String target;
+  public String replacement;
 
   public ReplaceTextCommand(String target, String replacement) {
 
@@ -12,7 +12,7 @@ public class ReplaceTextCommand implements TextCommand {
     this.replacement = replacement;
   }
 
-  private void verifyString(String string) {
+  public void verifyString(String string) {
     if (string.isBlank()) {
       throw new IllegalArgumentException("String cannot be empty");
     }
